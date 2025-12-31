@@ -1,0 +1,12 @@
+body, html {
+    background-color: black;
+    color: white; /* Para que el texto sea legible por defecto */
+    margin: 0;
+    padding: 0;
+}
+
+.category-card:hover {
+    transform: scale(1.05);
+    transition: 0.3s;
+    box-shadow: 0 0 20px #FCF259 !important;
+}
