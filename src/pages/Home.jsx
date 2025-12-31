@@ -1,9 +1,10 @@
 
 import Charactersimg from "../assets/img/characters2.jpeg";
-import Planetsimg from "../assets/img/Planets.jpeg";
-import vehiclesimg from "../assets/img/vehicles.jpg";
+import Planetsimg from "../assets/img/planets.jpeg";
+import Vehiclesimg from "../assets/img/vehicles.jpg";
 import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
 import { Link } from "react-router-dom";
+import React from "react";
 
 
 export const Home = () => {
@@ -17,7 +18,8 @@ export const Home = () => {
         <div className="col-12 col-md-4">
           <Link to="/characters" className="text-decoration-none">
             <div className="card bg-black text-white h-100 shadow" style={{ border: "2px solid #FCF259", borderRadius: "20px", overflow: "hidden" }}>
-              {/* 2. USAMOS LA VARIABLE IMPORTADA ENTRE LLAVES */}
+              
+
               <img src={Charactersimg} className="card-img-top" alt="Characters" style={{ height: "250px", objectFit: "cover" }} />
               <div className="card-body text-center">
                 <h3 className="card-title" style={{ color: "#FCF259" }}>CHARACTERS</h3>
@@ -42,7 +44,7 @@ export const Home = () => {
         <div className="col-12 col-md-4">
           <Link to="/vehicles" className="text-decoration-none">
             <div className="card bg-black text-white h-100 shadow" style={{ border: "2px solid #FCF259", borderRadius: "20px", overflow: "hidden" }}>
-              <img src={vehiclesimg} className="card-img-top" alt="Vehicles" style={{ height: "250px", objectFit: "cover" }} />
+              <img src={Vehiclesimg} className="card-img-top" alt="Vehicles" style={{ height: "250px", objectFit: "cover" }} />
               <div className="card-body text-center">
                 <h3 className="card-title" style={{ color: "#FCF259" }}>VEHICLES</h3>
               </div>
