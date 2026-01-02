@@ -12,6 +12,8 @@ import { Demo } from "./pages/Demo";
 import {Characters} from "./pages/Characters"
 import {Planets} from "./pages/Planets"
 import {Vehicles} from "./pages/Vehicles"
+import { SingleCard } from "./pages/SingleCard";
+
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -31,6 +33,7 @@ export const router = createBrowserRouter(
       <Route path="/characters" element={<Characters />} />
       <Route path="/planets" element={<Planets />} />
       <Route path="/vehicles" element={<Vehicles />} />
+      <Route path="/singleCard/:type/:theId" element={<Single />} />
 
     </Route>
   )
