@@ -2,14 +2,27 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 import singleCharacterimg from "../assets/img/character1.jpg";
+import useGlobalReducer from "../hooks/useGlobalReducer";
 
 
 
 export const Card = ({ item, endpoint }) => {
     // 1. Lógica para la URL de la imagen (usando la Visual Guide)
     // La API de imágenes usa "characters" en vez de "people"
-    const category = endpoint === "people" ? "characters" : endpoint;
-    const imageUrl = `starwars-visualguide.com{category}/${item.uid}.jpg`;
+    
+     const { store, dispatch } = useGlobalReducer();
+     const category = endpoint === "people" ? "characters" : endpoint;
+    const isFavorite = store.favorites.some(fav => String(fav.uid) === String(item.uid));
+
+    // 4. Función para añadir/quitar favorito
+    const handleFavorite = () => {
+        if (isFavorite) {
+            dispatch({ type: "remove_favorite", payload: item });
+        } else {
+            // Guardamos también el endpoint para que el Link del Navbar funcione
+            dispatch({ type: "add_favorite", payload: { ...item, endpoint: endpoint } });
+        }
+    };
 
     return (
         <div className="card bg-dark text-white me-3" style={{ border: "1px solid #FCF259", borderRadius: "10px" }}>
@@ -53,11 +66,15 @@ export const Card = ({ item, endpoint }) => {
                         Learn more!
                     </Link>
 
-                <button className="btn btn-outline-warning">
-                        <i className="far fa-heart"></i>
+               <button 
+                        className={`btn ${isFavorite ? "btn-warning" : "btn-outline-warning"}`} 
+                        onClick={handleFavorite}
+                    >
+                        <i className={`${isFavorite ? "fas" : "far"} fa-heart`}></i>
                     </button>
+                   
                 </div>
             </div>
-        </div>
+          </div>
     );
 };

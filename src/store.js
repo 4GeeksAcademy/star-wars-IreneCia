@@ -12,7 +12,7 @@ export default function storeReducer(store, action = {}) {
         case 'set_people':
             return {
                 ...store,
-                people: action.payload
+                people: [...action.payload]
             };
         case 'set_planets':
             return {
@@ -24,7 +24,9 @@ export default function storeReducer(store, action = {}) {
                 ...store,
                 vehicles: action.payload
             };
-        case 'add_favorite':
+       case 'add_favorite':
+            // Comparamos por UID para asegurar unicidad absoluta
+           
             return {
                 ...store,
                 favorites: [...store.favorites, action.payload]
@@ -32,7 +34,8 @@ export default function storeReducer(store, action = {}) {
         case 'remove_favorite':
             return {
                 ...store,
-                favorites: store.favorites.filter(fav => fav.name !== action.payload.name)
+                // Filtramos por UID para que al borrar desde el Navbar, la Card lo detecte
+                favorites: store.favorites.filter(fav => fav.uid !== action.payload.uid)
             };
         default:
             return store;
