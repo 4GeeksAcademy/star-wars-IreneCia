@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import singleCharacterimg from "../assets/img/character1.jpg";
 
 export const SingleCard = () => {
     const { type, theId } = useParams(); // Extrae los parámetros de la URL
@@ -8,10 +9,18 @@ export const SingleCard = () => {
 
     useEffect(() => {
         const getDetails = async () => {
-            // Petición a la API usando el tipo y el ID
-            const response = await fetch(`www.swapi.tech{type}/${theId}`);
-            const data = await response.json();
-            setDetail(data.result.properties);
+
+              try {
+                // Se ha corregido la URL con https://, /api/ y las barras / necesarias
+                const response = await fetch(`https://www.swapi.tech/api/${type}/${theId}`);
+                const data = await response.json();
+                
+                if (data.result && data.result.properties) {
+                    setDetail(data.result.properties);
+                }
+            } catch (error) {
+                console.error("Error en la descarga de detalles:", error);
+            }
         };
         getDetails();
     }, [type, theId]);
@@ -26,10 +35,9 @@ export const SingleCard = () => {
             <div className="row">
                 <div className="col-md-6">
                     <img 
-                        src={`starwars-visualguide.com{visualCategory}/${theId}.jpg`} 
+                        src={singleCharacterimg} 
                         className="img-fluid rounded shadow" 
                         alt={detail.name}
-                        onError={(e) => e.target.src = "starwars-visualguide.com"}
                     />
                 </div>
                 <div className="col-md-6">
@@ -43,7 +51,7 @@ export const SingleCard = () => {
                             !["url", "created", "edited", "name"].includes(key) && (
                                 <div className="col-6 mb-3" key={key}>
                                     <h6 className="text-warning text-uppercase small m-0">{key.replace("_", " ")}</h6>
-                                    <p className="fs-5">{value}</p>
+                                    <p className="fs-5 text-break">{Array.isArray(value) ? "Multiple items" : value}</p>
                                 </div>
                             )
                         ))}

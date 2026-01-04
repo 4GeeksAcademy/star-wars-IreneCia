@@ -1,6 +1,8 @@
 import React from "react";
 
 import { Link } from "react-router-dom";
+import singleCharacterimg from "../assets/img/character1.jpg";
+
 
 
 export const Card = ({ item, endpoint }) => {
@@ -13,10 +15,10 @@ export const Card = ({ item, endpoint }) => {
         <div className="card bg-dark text-white me-3" style={{ border: "1px solid #FCF259", borderRadius: "10px" }}>
             {/* Imagen del personaje/planeta/vehículo */}
             <img 
-                src={imageUrl} 
+             src={singleCharacterimg} 
                 className="card-img-top" 
                 alt={item.name} 
-                onError={(e) => e.target.src = "starwars-visualguide.com"}
+               style={{ height: "250px", objectFit: "cover" }}
             />
             
             <div className="card-body d-flex flex-column">
