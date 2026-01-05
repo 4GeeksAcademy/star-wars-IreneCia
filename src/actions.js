@@ -17,10 +17,11 @@ export const loadData = async (endpoint, dispatch) => {
                 };
             })
         );
+        
 
         // Enviamos al store.js
         dispatch({
-            type: `set_${endpoint === "people" ? "people" : endpoint}`,
+            type: `set_${endpoint}`, // Esto generará 'set_planets' o 'set_vehicles'
             payload: detailedItems
         });
 
@@ -31,8 +32,8 @@ export const loadData = async (endpoint, dispatch) => {
 
 export const toggleFavorite = (item, store, dispatch) => {
     const isFavorite = store.favorites.some(fav => fav.name === item.name);
-    dispatch({ 
-        type: isFavorite ? 'remove_favorite' : 'add_favorite', 
-        payload: item 
+    dispatch({
+        type: isFavorite ? 'remove_favorite' : 'add_favorite',
+        payload: item
     });
 };

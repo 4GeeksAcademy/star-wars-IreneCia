@@ -17,12 +17,12 @@ export default function storeReducer(store, action = {}) {
         case 'set_planets':
             return {
                 ...store,
-                planets: action.payload
+                planets: [...action.payload]
             };
         case 'set_vehicles':
             return {
                 ...store,
-                vehicles: action.payload
+                vehicles: [...action.payload]
             };
        case 'add_favorite':
             // Comparamos por UID para asegurar unicidad absoluta

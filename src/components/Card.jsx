@@ -2,13 +2,22 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 import singleCharacterimg from "../assets/img/character1.jpg";
+import singlePlanetimg from "../assets/img/Planets1.jpg"
+import singleVehicleimg from "../assets/img/Vehicle1.jpg"
 import useGlobalReducer from "../hooks/useGlobalReducer";
 
 
 
 export const Card = ({ item, endpoint }) => {
-    // 1. Lógica para la URL de la imagen (usando la Visual Guide)
-    // La API de imágenes usa "characters" en vez de "people"
+    
+     let cardImage;
+    if (endpoint === "people") {
+        cardImage = singleCharacterimg;
+    } else if (endpoint === "planets") {
+        cardImage = singlePlanetimg;
+    } else {
+        cardImage = singleVehicleimg;
+    }
     
      const { store, dispatch } = useGlobalReducer();
      const category = endpoint === "people" ? "characters" : endpoint;
@@ -28,7 +37,7 @@ export const Card = ({ item, endpoint }) => {
         <div className="card bg-dark text-white me-3" style={{ border: "1px solid #FCF259", borderRadius: "10px" }}>
             {/* Imagen del personaje/planeta/vehículo */}
             <img 
-             src={singleCharacterimg} 
+             src={cardImage} 
                 className="card-img-top" 
                 alt={item.name} 
                style={{ height: "250px", objectFit: "cover" }}

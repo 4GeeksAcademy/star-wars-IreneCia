@@ -2,10 +2,20 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import singleCharacterimg from "../assets/img/character1.jpg";
+import singlePlanetimg from "../assets/img/Planets1.jpg"
+import singleVehicleimg from "../assets/img/Vehicle1.jpg"
 
-export const SingleCard = () => {
-    const { type, theId } = useParams(); // Extrae los parámetros de la URL
-    const [detail, setDetail] = useState(null);
+export const Card = ({ item, endpoint }) => {
+    // Lógica para elegir la imagen fija según el tipo de tarjeta
+    let cardImage;
+    if (endpoint === "people") {
+        cardImage = characterImg;
+    } else if (endpoint === "planets") {
+        cardImage = planetImg;
+    } else {
+        cardImage = vehicleImg;
+    }
+
 
     useEffect(() => {
         const getDetails = async () => {
@@ -35,7 +45,7 @@ export const SingleCard = () => {
             <div className="row">
                 <div className="col-md-6">
                     <img 
-                        src={singleCharacterimg} 
+                        src={imageMap[type]} 
                         className="img-fluid rounded shadow" 
                         alt={detail.name}
                     />
