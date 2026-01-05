@@ -17,7 +17,7 @@ export const Home = () => {
         {/* Categoría: Personajes */}
         <div className="col-12 col-md-4">
           <Link to="/characters" className="text-decoration-none">
-            <div className="card bg-black text-white h-100 shadow" style={{ border: "2px solid #FCF259", borderRadius: "20px", overflow: "hidden" }}>
+            <div className="card bg-black text-white h-100 shadow home-card" style={{ border: "2px solid #FCF259", borderRadius: "20px", overflow: "hidden" }}>
               
 
               <img src={Charactersimg} className="card-img-top" alt="Characters" style={{ height: "250px", objectFit: "cover" }} />
@@ -31,7 +31,7 @@ export const Home = () => {
         {/* Categoría: Planetas */}
         <div className="col-12 col-md-4">
           <Link to="/planets" className="text-decoration-none">
-            <div className="card bg-black text-white h-100 shadow" style={{ border: "2px solid #FCF259", borderRadius: "20px", overflow: "hidden" }}>
+            <div className="card bg-black text-white h-100 shadow home-card" style={{ border: "2px solid #FCF259", borderRadius: "20px", overflow: "hidden" }}>
               <img src={Planetsimg} className="card-img-top" alt="Planets" style={{ height: "250px", objectFit: "cover" }} />
               <div className="card-body text-center">
                 <h3 className="card-title" style={{ color: "#FCF259" }}>PLANETS</h3>
@@ -43,7 +43,7 @@ export const Home = () => {
         {/* Categoría: Vehículos */}
         <div className="col-12 col-md-4">
           <Link to="/vehicles" className="text-decoration-none">
-            <div className="card bg-black text-white h-100 shadow" style={{ border: "2px solid #FCF259", borderRadius: "20px", overflow: "hidden" }}>
+            <div className="card bg-black text-white h-100 shadow home-card" style={{ border: "2px solid #FCF259", borderRadius: "20px", overflow: "hidden" }}>
               <img src={Vehiclesimg} className="card-img-top" alt="Vehicles" style={{ height: "250px", objectFit: "cover" }} />
               <div className="card-body text-center">
                 <h3 className="card-title" style={{ color: "#FCF259" }}>VEHICLES</h3>

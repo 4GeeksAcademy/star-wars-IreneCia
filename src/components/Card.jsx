@@ -34,7 +34,7 @@ export const Card = ({ item, endpoint }) => {
     };
 
     return (
-        <div className="card bg-dark text-white me-3" style={{ border: "1px solid #FCF259", borderRadius: "10px" }}>
+        <div className="card bg-dark text-white h-100 neon-card" style={{ border: "1px solid #FCF259", borderRadius: "10px" }}>
             {/* Imagen del personaje/planeta/vehículo */}
             <img 
              src={cardImage} 

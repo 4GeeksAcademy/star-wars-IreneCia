@@ -5,7 +5,7 @@ import singleCharacterimg from "../assets/img/character1.jpg";
 import singlePlanetimg from "../assets/img/Planets1.jpg"
 import singleVehicleimg from "../assets/img/Vehicle1.jpg"
 
-export const Card = ({ item, endpoint }) => {
+export const SingleCard = ({ item, endpoint }) => {
     // Lógica para elegir la imagen fija según el tipo de tarjeta
     let cardImage;
     if (endpoint === "people") {
