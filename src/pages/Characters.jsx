@@ -8,7 +8,7 @@ export const Characters = () => {
     const { store, dispatch } = useGlobalReducer();
 
     useEffect(() => {
-        // Solo cargamos si la "despensa" está vacía para no repetir la llamada
+        
         if (store.people.length === 0) {
             loadData("people", dispatch);
         }
@@ -18,7 +18,7 @@ export const Characters = () => {
         <div className="container-fluid mt-5 px-5">
             <h1 className="text-warning mb-4 fw-bold">CHARACTERS</h1>
 
-            {/* Contenedor con scroll horizontal */}
+            
             <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
                 {store.people.map((item) => (
                     <div className="col d-flex justify-content-center" key={item.uid}>

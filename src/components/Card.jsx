@@ -23,19 +23,19 @@ export const Card = ({ item, endpoint }) => {
      const category = endpoint === "people" ? "characters" : endpoint;
     const isFavorite = store.favorites.some(fav => String(fav.uid) === String(item.uid));
 
-    // 4. Función para añadir/quitar favorito
+    
     const handleFavorite = () => {
         if (isFavorite) {
             dispatch({ type: "remove_favorite", payload: item });
         } else {
-            // Guardamos también el endpoint para que el Link del Navbar funcione
+            
             dispatch({ type: "add_favorite", payload: { ...item, endpoint: endpoint } });
         }
     };
 
     return (
         <div className="card bg-dark text-white h-100 neon-card" style={{ border: "1px solid #FCF259", borderRadius: "10px" }}>
-            {/* Imagen del personaje/planeta/vehículo */}
+            
             <img 
              src={cardImage} 
                 className="card-img-top" 
@@ -46,7 +46,7 @@ export const Card = ({ item, endpoint }) => {
             <div className="card-body d-flex flex-column">
                 <h5 className="card-title text-warning fw-bold">{item.name}</h5>
                 
-                {/* 2. Cuerpo de la tarjeta: Datos dinámicos según el endpoint */}
+                
                 <div className="card-text mb-4" style={{ fontSize: "0.9rem" }}>
                     {endpoint === "people" && (
                         <>
@@ -69,7 +69,7 @@ export const Card = ({ item, endpoint }) => {
                     )}
                 </div>
 
-                {/* 3. Botas de acción */}
+                
                 <div className="d-flex justify-content-between mt-auto">
                     <Link to={`/singleCard/${endpoint}/${item.uid}`} className="btn btn-outline-primary">
                         Learn more!

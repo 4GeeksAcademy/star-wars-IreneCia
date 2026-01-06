@@ -5,15 +5,18 @@ import singleCharacterimg from "../assets/img/character1.jpg";
 import singlePlanetimg from "../assets/img/Planets1.jpg"
 import singleVehicleimg from "../assets/img/Vehicle1.jpg"
 
-export const SingleCard = ({ item, endpoint }) => {
-    // Lógica para elegir la imagen fija según el tipo de tarjeta
+export const SingleCard = () => { 
+    const { type, theId } = useParams(); 
+    const [detail, setDetail] = useState(null);
+
+    
     let cardImage;
-    if (endpoint === "people") {
-        cardImage = characterImg;
-    } else if (endpoint === "planets") {
-        cardImage = planetImg;
+    if (type === "people") {
+        cardImage = singleCharacterimg;
+    } else if (type === "planets") {
+        cardImage = singlePlanetimg;
     } else {
-        cardImage = vehicleImg;
+        cardImage = singleVehicleimg;
     }
 
 
@@ -21,7 +24,7 @@ export const SingleCard = ({ item, endpoint }) => {
         const getDetails = async () => {
 
               try {
-                // Se ha corregido la URL con https://, /api/ y las barras / necesarias
+                
                 const response = await fetch(`https://www.swapi.tech/api/${type}/${theId}`);
                 const data = await response.json();
                 
@@ -37,7 +40,7 @@ export const SingleCard = ({ item, endpoint }) => {
 
     if (!detail) return <h2 className="text-center text-warning mt-5">Cargando detalles...</h2>;
 
-    // Ajuste de nombre para la guía visual
+    
     const visualCategory = type === "people" ? "characters" : type;
 
     return (
@@ -45,7 +48,7 @@ export const SingleCard = ({ item, endpoint }) => {
             <div className="row">
                 <div className="col-md-6">
                     <img 
-                        src={imageMap[type]} 
+                        src={cardImage} 
                         className="img-fluid rounded shadow" 
                         alt={detail.name}
                     />
@@ -57,7 +60,7 @@ export const SingleCard = ({ item, endpoint }) => {
                     
                     <div className="row">
                         {Object.entries(detail).map(([key, value]) => (
-                            // Filtramos campos que no queremos mostrar como la URL o fechas
+                            
                             !["url", "created", "edited", "name"].includes(key) && (
                                 <div className="col-6 mb-3" key={key}>
                                     <h6 className="text-warning text-uppercase small m-0">{key.replace("_", " ")}</h6>

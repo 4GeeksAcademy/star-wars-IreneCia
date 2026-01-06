@@ -15,7 +15,7 @@ useEffect(() => {
         <div className="container-fluid mt-5 px-5">
             <h1 className="text-warning mb-4 fw-bold">PLANETS</h1>
 
-            {/* Contenedor con scroll horizontal */}
+            
             <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
                 {store.planets.map((item) => (
                     <div className="col d-flex justify-content-center" key={item.uid}>

@@ -14,7 +14,8 @@ export const Home = () => {
       <h1 className="text-center text-warning mb-5 fw-bold">QUE LA FUERZA TE ACOMPAÑE</h1>
       
       <div className="row justify-content-center g-4">
-        {/* Categoría: Personajes */}
+
+        {/* PERSONAJES */}
         <div className="col-12 col-md-4">
           <Link to="/characters" className="text-decoration-none">
             <div className="card bg-black text-white h-100 shadow home-card" style={{ border: "2px solid #FCF259", borderRadius: "20px", overflow: "hidden" }}>
@@ -28,7 +29,7 @@ export const Home = () => {
           </Link>
         </div>
 
-        {/* Categoría: Planetas */}
+        {/* PLANETAS */}
         <div className="col-12 col-md-4">
           <Link to="/planets" className="text-decoration-none">
             <div className="card bg-black text-white h-100 shadow home-card" style={{ border: "2px solid #FCF259", borderRadius: "20px", overflow: "hidden" }}>
@@ -40,7 +41,7 @@ export const Home = () => {
           </Link>
         </div>
 
-        {/* Categoría: Vehículos */}
+        {/* VEHICULOS */}
         <div className="col-12 col-md-4">
           <Link to="/vehicles" className="text-decoration-none">
             <div className="card bg-black text-white h-100 shadow home-card" style={{ border: "2px solid #FCF259", borderRadius: "20px", overflow: "hidden" }}>
