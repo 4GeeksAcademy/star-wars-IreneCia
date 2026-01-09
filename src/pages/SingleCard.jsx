@@ -38,7 +38,7 @@ export const SingleCard = () => {
         getDetails();
     }, [type, theId]);
 
-    if (!detail) return <h2 className="text-center text-warning mt-5">Cargando detalles...</h2>;
+    if (!detail) return <h2 className="text-center text-warning mt-5">Conectando con la galaxia...</h2>;
 
     
     const visualCategory = type === "people" ? "characters" : type;
