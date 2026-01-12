@@ -12,16 +12,21 @@ export const Card = ({ item, endpoint }) => {
     
      let cardImage;
     if (endpoint === "people") {
-        cardImage = singleCharacterimg;
+        cardImage = `https://raw.githubusercontent.com/tbone849/star-wars-guide/refs/heads/master/build/assets/img/characters/${item.uid}.jpg`;
     } else if (endpoint === "planets") {
-        cardImage = singlePlanetimg;
+        cardImage = `https://raw.githubusercontent.com/tbone849/star-wars-guide/refs/heads/master/build/assets/img/planets/${item.uid}.jpg`;
     } else {
-        cardImage = singleVehicleimg;
+        cardImage = `https://raw.githubusercontent.com/tbone849/star-wars-guide/refs/heads/master/build/assets/img/vehicles/${item.uid}.jpg`;
     }
     
      const { store, dispatch } = useGlobalReducer();
      const category = endpoint === "people" ? "characters" : endpoint;
-    const isFavorite = store.favorites.some(fav => String(fav.uid) === String(item.uid));
+    const isFavorite = store.favorites.find(
+        (fav) => fav.endpoint === endpoint && String(fav.uid) === String(item.uid)
+    );
+
+        
+    
 
     
     const handleFavorite = () => {
