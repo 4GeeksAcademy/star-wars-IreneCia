@@ -20,7 +20,7 @@ export const Card = ({ item, endpoint }) => {
     }
     
      const { store, dispatch } = useGlobalReducer();
-     const category = endpoint === "people" ? "characters" : endpoint;
+     
     const isFavorite = store.favorites.find(
         (fav) => fav.endpoint === endpoint && String(fav.uid) === String(item.uid)
     );
