@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import singleCharacterimg from "../assets/img/character1.jpg";
 import singlePlanetimg from "../assets/img/Planets1.jpg"
 import singleVehicleimg from "../assets/img/Vehicle1.jpg"
+import tatooineimg from "../assets/img/tatooine.jpeg"
 
 export const SingleCard = () => { 
     const { type, theId } = useParams(); 
@@ -11,13 +12,19 @@ export const SingleCard = () => {
 
     
     let cardImage;
-    if (type === "people") {
-        cardImage = singleCharacterimg;
-    } else if (type === "planets") {
-        cardImage = singlePlanetimg;
-    } else {
-        cardImage = singleVehicleimg;
-    }
+       if (type === "people") {
+           cardImage = `https://raw.githubusercontent.com/tbone849/star-wars-guide/refs/heads/master/build/assets/img/characters/${theId}.jpg`;
+       } else if (type === "planets") {
+   
+           if (theId === "1") {
+               cardImage = tatooineimg;
+                } else {
+               cardImage = `https://raw.githubusercontent.com/tbone849/star-wars-guide/refs/heads/master/build/assets/img/planets/${theId}.jpg`;
+           } 
+       } else {
+               cardImage = `https://raw.githubusercontent.com/tbone849/star-wars-guide/refs/heads/master/build/assets/img/vehicles/${theId}.jpg`;
+           }
+   
 
 
     useEffect(() => {
@@ -41,7 +48,7 @@ export const SingleCard = () => {
     if (!detail) return <h2 className="text-center text-warning mt-5">Conectando con la galaxia...</h2>;
 
     
-    const visualCategory = type === "people" ? "characters" : type;
+   
 
     return (
         <div className="container mt-5 bg-dark text-white p-4 rounded border border-warning">

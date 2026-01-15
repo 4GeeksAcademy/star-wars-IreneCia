@@ -35,7 +35,7 @@ export const Characters = () => {
         fetchData();
 
     }, []); //esto hace que se ejecute solo al montar el componente
-    console.log(store.people)
+    
 
 
     return (

@@ -1,9 +1,6 @@
 import React from "react";
 
 import { Link } from "react-router-dom";
-import singleCharacterimg from "../assets/img/character1.jpg";
-import singlePlanetimg from "../assets/img/Planets1.jpg"
-import singleVehicleimg from "../assets/img/Vehicle1.jpg"
 import tatooineimg from "../assets/img/tatooine.jpeg"
 import useGlobalReducer from "../hooks/useGlobalReducer";
 
